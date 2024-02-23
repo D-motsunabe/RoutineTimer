@@ -1,0 +1,17 @@
+import time
+import os
+
+def read_text_after_delay(text, minutes, seconds):
+    total_seconds = minutes * 60 + seconds
+    time.sleep(total_seconds)
+    os.system(f'say "{text}"')  # macOSの場合、"say"コマンドを使用してテキストを読み上げます
+
+if __name__ == "__main__":
+    x = int(input("何分後に読み上げますか？: "))
+    yz = input("何秒後に読み上げますか？: ")
+
+    minutes, seconds = map(int, yz.split(':'))
+    text = input("読み上げるテキストを入力してください: ")
+
+    print(f"{x}分{yz}秒後に「{text}」を読み上げます。")
+    read_text_after_delay(text, x, seconds)
